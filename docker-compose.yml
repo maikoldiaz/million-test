@@ -1,0 +1,51 @@
+version: '3.9'
+services:
+  mongodb:
+    image: mongo:6
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./seed-data:/docker-entrypoint-initdb.d
+    environment:
+      MONGO_INITDB_DATABASE: realestate_db
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+
+  #Backend (.NET 8)
+  backend:
+    image: backend:latest
+    container_name: dotnet-backend
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    environment:
+      MongoConfiguration__ConnectionString: mongodb://mongodb:27017
+      MongoConfiguration__DatabaseName: realestate_db
+      ASPNETCORE_URLS: http://+:80
+    ports:
+      - "5000:80"
+    depends_on:
+      - mongodb
+
+  #Frontend (React)
+  frontend:
+    image: frontend:latest
+    container_name: react-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://backend:80/api
+    environment:
+      NEXT_PUBLIC_API_URL: "http://backend:80/api"
+    ports:
+      - "3000:3000"
+volumes:
+  mongodb_data:

@@ -1,0 +1,16 @@
+.card--container {
+    display: grid;
+    padding: 1rem;
+    width: 320px;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin: 1rem;
+}
+
+.card--header img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: fill;
+    border-radius: 0.5rem;
+}

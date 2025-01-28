@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px;
+  --ss: 12px;
+  --slg: 24px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ededed;
+    --foreground: #0a0a0a;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Quicksand', sans-serif;
+  width: 100%;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100%;
+}

@@ -1,0 +1,10 @@
+backend/api/bin/
+backend/api/obj/
+backend/Application/bin/
+backend/Application/obj/
+backend/domain/bin/
+backend/domain/obj/
+backend/infrastructure/bin/
+backend/infrastructure/obj/
+backend/test/bin/
+backend/test/obj/
