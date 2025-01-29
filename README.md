@@ -1,6 +1,6 @@
 # 🏡 Real Estate Application
 
-Este proyecto es una **aplicación de visualizacio** de propiedades inmobiliarias, incluyendo un **backend en .NET 8** y un **frontend en Next.js con TypeScript**.
+Este proyecto es una **aplicación de visualización** de propiedades inmobiliarias, incluyendo un **backend en .NET 8** y un **frontend en Next.js con TypeScript**.
 La aplicación sigue principios de Domain-Driven Design (DDD) y SOLID, y está construida con .NET 8. Además, cuenta con pruebas unitarias en NUnit para garantizar su estabilidad.
 
 ---
@@ -20,10 +20,10 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
 
 ## 💡 **Notas**
 
-- La API está configurada para ejecutarse en **Docker** y validará las pruebas unitarias antes de generar la imagen final.
+- La API está configurada para ejecutarse en **Docker** y **validará** las pruebas unitarias antes de generar la imagen final.
 - Si alguna prueba falla, la construcción se detendrá, asegurando estabilidad en la aplicación.
 - Puedes personalizar los puertos en `docker-compose.yml`.
-- La prueba incluye una inicialización de datos dummy, que se crean al momento de iniciar la base de datos desde docker compose.
+- La proyecto incluye una inicialización de datos dummy, que se crean al momento de iniciar la base de datos desde docker compose.
 
 ---
 ## 🏗️ **Tecnologías Utilizadas**
@@ -70,8 +70,6 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
 ---
 
 # 🚀 **Cómo Ejecutar el Proyecto**
-
-## 🔹 **Ejecutar el Backend**
 ### 1️⃣ **Con Docker (Recomendado)**
 Ejecuta el siguiente comando en la raíz del proyecto:
 
@@ -79,15 +77,17 @@ Ejecuta el siguiente comando en la raíz del proyecto:
 docker-compose up --build
 ```
 
-Esto levantará la API y el Front en:
-
+**Esto levantará**:
 ```
-http://localhost:5000
-```
-
-```
+Frontend
 http://localhost:3000
 ```
+
+```
+Backend
+http://localhost:5000/swagger/index.html
+```
+
 
 ### 2️⃣ **Ejecutar el Backend Manualmente**
 Si prefieres ejecutarlo sin Docker:
@@ -98,15 +98,19 @@ dotnet restore
 dotnet build
 dotnet run --project api/Api.csproj
 ```
+Accede en el navegador:
+```
+http://localhost:5000/swagger/index.html
+```
 
-## 🔹 **Ejecutar el Frontend**
-### 1️⃣ **Instalar dependencias**
+### 3️⃣ **Ejecutar el Frontend Manualmente**
+#### 🔹 **Instalar dependencias**
 ```bash
 cd frontend
 npm install
 ```
 
-### 2️⃣ **Ejecutar la aplicación**
+#### 🔹 **Ejecutar la aplicación**
 ```bash
 npm run dev
 ```
@@ -171,13 +175,3 @@ Para ejecutar las pruebas en .NET:
 ```bash
 dotnet test
 ```
-
-### 🔹 **Frontend**
-Para ejecutar pruebas en React con Jest:
-
-```bash
-cd frontend
-npm run test
-```
-
----
